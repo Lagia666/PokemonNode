@@ -27,6 +27,9 @@
   "paths": {
   "/trainers/{id}": {
     "get": {
+      "tags": [
+        "Trainers"
+      ],
       "summary": "Retrieve the in formation of a trainer",
       "parameters": [
         {
@@ -94,6 +97,15 @@
       "tags": [
         "Trainers"
       ],
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "The id of the Trainer",
+          "required": true,
+          "type": "string"
+        }
+      ],
       "summary": "Update all information of a trainer",
       "security": [
         {
@@ -143,11 +155,26 @@
       ]
     },
     "delete": {
-      "summary": "Delete a trainer"
+      "tags": [
+        "Trainers"
+      ],
+      "summary": "Delete a trainer",
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "The id of the Trainer",
+          "required": true,
+          "type": "string"
+        }
+      ]
     }
   },
   "/trainers": {
     "get": {
+      "tags": [
+        "Trainers"
+      ],
       "summary": "Retrieve the in formation of all trainer"
     },
     "post": {
@@ -198,8 +225,21 @@
   },
   "/pokemons/{id}": {
     "get": {
-      "summary": "Retrieve the in formation of a pokemon"
+      "tags": [
+        "Pokemons"
+      ],
+      "summary": "Retrieve the in formation of a pokemon",
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "The id of the Pokemon",
+          "required": true,
+          "type": "string"
+        }
+      ]
     },
+
     "patch": {
       "tags": [
         "Pokemons"
@@ -329,11 +369,26 @@
       ]
     },
     "delete": {
+      "tags": [
+        "Pokemons"
+      ],
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "The id of the pokemon",
+          "required": true,
+          "type": "string"
+        }
+      ],
       "summary": "Delete a pokemon"
     }
   },
   "/pokemons": {
     "get": {
+      "tags": [
+        "Pokemons"
+      ],
       "summary": "Retrieve the in formation of all pokemons"
     },
     "post": {

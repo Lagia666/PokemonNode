@@ -7,7 +7,7 @@ import swaggerDocument from './Swagger.json' assert {type: 'json'}
 import bcrypt from "bcrypt";
 
 const app = express()
-Trainer.create({firstname: "Leo", lastname: 'Pokemaniac', age: 23, login: "leopkmn", password: bcrypt.hash("cynthia", 5), role: "ADMIN"})
+//Trainer.create({firstname: "Leo", lastname: 'Pokemaniac', age: 23, login: "leopkmn", password: bcrypt.hash("cynthia", 5), role: "ADMIN"})
 app.use(express.json())
 app.use(trainer)
 app.use(pokemon)
