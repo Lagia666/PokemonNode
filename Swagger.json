@@ -1,0 +1,398 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Node",
+    "description": "Projet de PC Pokemon",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Valentin Dumousset",
+      "email": "valentin.dumousset@epita.fr"
+    }
+  },
+  "host": "localhost:8080",
+  "basepath": "/",
+  "schemes": [
+    "http"
+  ],
+  "tags": [
+    {
+      "name": "Trainers",
+      "description": "API for Trainer ressources"
+    },
+    {
+      "name": "Pokemons",
+      "description": "API for Pokemon ressources"
+    }
+  ],
+  "paths": {
+  "/trainers/{id}": {
+    "get": {
+      "summary": "Retrieve the in formation of a trainer",
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "The id of the Trainer",
+          "required": true,
+          "type": "string"
+        }
+        ]
+    },
+    "patch": {
+      "tags": [
+        "Trainers"
+      ],
+      "summary": "Update one information of a trainer",
+      "security": [
+        {
+          "oauth": [
+            "trainer:update"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "The id of the Trainer",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "in": "body",
+          "name": "id",
+          "description": "The data to update in the Trainer",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "firstname": {
+                "type": "string",
+                "description": "The new first name of the trainer"
+              },
+              "lastname": {
+                "type": "string",
+                "description": "The new last name of the trainer"
+              },
+              "login": {
+                "type": "string",
+                "description": "The new login of the trainer"
+              },
+              "password": {
+                "type": "string",
+                "description": "The new password of the trainer"
+              },
+              "age": {
+                "type": "integer",
+                "description": "The new age of the trainer"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "put": {
+      "tags": [
+        "Trainers"
+      ],
+      "summary": "Update all information of a trainer",
+      "security": [
+        {
+          "oauth": [
+            "trainer:update"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "The id of the Trainer",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "in": "body",
+          "name": "id",
+          "description": "The data to update in the Trainer",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "firstname": {
+                "type": "string",
+                "description": "The new first name of the trainer"
+              },
+              "lastname": {
+                "type": "string",
+                "description": "The new last name of the trainer"
+              },
+              "login": {
+                "type": "string",
+                "description": "The new login of the trainer"
+              },
+              "password": {
+                "type": "string",
+                "description": "The new password of the trainer"
+              },
+              "age": {
+                "type": "integer",
+                "description": "The new age of the trainer"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "delete": {
+      "summary": "Delete a trainer"
+    }
+  },
+  "/trainers": {
+    "get": {
+      "summary": "Retrieve the in formation of all trainer"
+    },
+    "post": {
+      "tags": [
+        "Trainers"
+      ],
+      "summary": "Create a new trainer",
+      "security": [
+        {
+          "oauth": [
+            "trainer:create"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "in": "body",
+          "name": "id",
+          "description": "The data to create the Trainer",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "firstname": {
+                "type": "string",
+                "description": "The new first name of the trainer"
+              },
+              "lastname": {
+                "type": "string",
+                "description": "The new last name of the trainer"
+              },
+              "login": {
+                "type": "string",
+                "description": "The new login of the trainer"
+              },
+              "password": {
+                "type": "string",
+                "description": "The new password of the trainer"
+              },
+              "age": {
+                "type": "integer",
+                "description": "The new age of the trainer"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "/pokemons/{id}": {
+    "get": {
+      "summary": "Retrieve the in formation of a pokemon"
+    },
+    "patch": {
+      "tags": [
+        "Pokemons"
+      ],
+      "summary": "Update one information of a Pokemon",
+      "security": [
+        {
+          "oauth": [
+            "pokemon:update"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "The id of the Pokemon",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "in": "body",
+          "name": "id",
+          "description": "The data to update in the Pokemon",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "trainerID": {
+                "type": "integer",
+                "description": "The new trainer id of the pokemon"
+              },
+              "species": {
+                "type": "string",
+                "description": "The new species name of the pokemon"
+              },
+              "level": {
+                "type": "integer",
+                "description": "The new level of the pokemon"
+              },
+              "name": {
+                "type": "string",
+                "description": "The new name of the pokemon"
+              },
+              "gender": {
+                "type": "string",
+                "description": "The new gender of the pokemon"
+              },
+              "height": {
+                "type": "integer",
+                "description": "The new height of the pokemon"
+              },
+              "weight": {
+                "type": "integer",
+                "description": "The new weight of the pokemon"
+              },
+              "shiny": {
+                "type": "boolean",
+                "description": "The new response to is the pokemon shiny"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "put": {
+      "tags": [
+        "Pokemons"
+      ],
+      "summary": "Update all information of a Pokemon",
+      "security": [
+        {
+          "oauth": [
+            "pokemon:update"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "The id of the Pokemon",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "in": "body",
+          "name": "id",
+          "description": "The data to update in the Pokemon",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "trainerID": {
+                "type": "integer",
+                "description": "The new trainer id of the pokemon"
+              },
+              "species": {
+                "type": "string",
+                "description": "The new species name of the pokemon"
+              },
+              "level": {
+                "type": "integer",
+                "description": "The new level of the pokemon"
+              },
+              "name": {
+                "type": "string",
+                "description": "The new name of the pokemon"
+              },
+              "gender": {
+                "type": "string",
+                "description": "The new gender of the pokemon"
+              },
+              "height": {
+                "type": "integer",
+                "description": "The new height of the pokemon"
+              },
+              "weight": {
+                "type": "integer",
+                "description": "The new weight of the pokemon"
+              },
+              "shiny": {
+                "type": "boolean",
+                "description": "The new response to is the pokemon shiny"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "delete": {
+      "summary": "Delete a pokemon"
+    }
+  },
+  "/pokemons": {
+    "get": {
+      "summary": "Retrieve the in formation of all pokemons"
+    },
+    "post": {
+      "tags": [
+        "Pokemons"
+      ],
+      "summary": "Create a Pokemon",
+      "security": [
+        {
+          "oauth": [
+            "pokemon:create"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "in": "body",
+          "name": "id",
+          "description": "The data to update in the Pokemon",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "trainerID": {
+                "type": "integer",
+                "description": "The new trainer id of the pokemon"
+              },
+              "species": {
+                "type": "string",
+                "description": "The new species name of the pokemon"
+              },
+              "level": {
+                "type": "integer",
+                "description": "The new level of the pokemon"
+              },
+              "name": {
+                "type": "string",
+                "description": "The new name of the pokemon"
+              },
+              "gender": {
+                "type": "string",
+                "description": "The new gender of the pokemon"
+              },
+              "height": {
+                "type": "integer",
+                "description": "The new height of the pokemon"
+              },
+              "weight": {
+                "type": "integer",
+                "description": "The new weight of the pokemon"
+              },
+              "shiny": {
+                "type": "boolean",
+                "description": "The new response to is the pokemon shiny"
+              }
+            }
+          }
+        }
+      ]
+    }
+    }
+  }
+}
